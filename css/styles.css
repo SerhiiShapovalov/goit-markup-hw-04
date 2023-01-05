@@ -47,6 +47,19 @@ body {
   margin: 0 auto;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .header {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -57,14 +70,13 @@ body {
   display: flex;
   align-items: center;
 }
+
 .site-nav {
   display: flex;
   align-items: center;
   margin-right: auto;
 }
-.logo {
-  margin-right: 76px;
-}
+
 .site-nav > .list {
   display: flex;
   gap: var(--second-gap);
@@ -99,16 +111,12 @@ body {
   top: 24px;
 }
 
+.header .logo {
+  margin-right: 76px;
+}
+
 .accent {
   color: #2e2f42;
-}
-
-.footer-logo {
-  margin-bottom: 16px;
-}
-
-.footer-logo > .accent {
-  color: #f4f4fd;
 }
 
 .list {
@@ -194,9 +202,9 @@ body {
   width: 264px;
 }
 
-.principles-item::before {
-  display: block;
-  content: "";
+.principles-icon {
+  padding: 24px 100px;
+  width: 264px;
   height: 112px;
   background: #f4f4fd;
   border-radius: 4px;
@@ -204,22 +212,6 @@ body {
   background-size: 64px 64px;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.icon-antenna::before {
-  background-image: url("../images/antenna.svg");
-}
-
-.icon-clock::before {
-  background-image: url("../images/clock.svg");
-}
-
-.icon-diagram::before {
-  background-image: url("../images/diagram.svg");
-}
-
-.icon-astronaut::before {
-  background-image: url("../images/astronaut.svg");
 }
 
 .section-title {
@@ -244,10 +236,6 @@ body {
   margin-bottom: 8px;
 }
 
-.principles .section-title {
-  display: none;
-}
-
 .section {
   padding-bottom: 120px;
 }
@@ -265,7 +253,7 @@ body {
 .team {
   background-color: #f4f4fd;
   padding-top: 120px;
-  padding-bottom: 120px;
+  padding-bottom: 110px;
 }
 
 .team-item {
@@ -286,14 +274,83 @@ body {
 
 .team-item-text {
   text-align: center;
+  margin-bottom: 8px;
 }
 
 .team-member {
-  padding: 32px 15px;
+  padding: 32px 16px;
 }
 
-.portfolio .portfolio-title {
-  display: none;
+.member-soc-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.member-soc-item {
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+.member-soc-link {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-soc-icon {
+  fill: #f4f4fd;
+}
+
+.member-soc-link:hover,
+.member-soc-link:focus {
+  background-color: #404bbf;
+}
+
+.customers-section {
+  padding-top: 130px;
+  padding-bottom: 120px;
+}
+
+.сustomers-list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--first-gap);
+}
+
+.сustomers-item {
+  padding: 0;
+  width: 168px;
+  height: 88px;
+}
+
+.customers-link {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: #8e8f99;
+}
+
+.link-icon {
+  padding: 16px 32px;
+}
+
+.customers-link:hover,
+.customers-link:focus {
+  border-color: #404bbf;
+  fill: #404bbf;
 }
 
 .portfolio-item-title {
@@ -316,12 +373,6 @@ body {
 .portfolio {
   padding-top: 96px;
   padding-bottom: 120px;
-}
-
-.footer {
-  background-color: #2e2f42;
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 .text {
@@ -404,7 +455,8 @@ body {
   width: calc((100% - 2 * 24px) / 3);
 }
 
-.card:hover {
+.card:hover,
+.card:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
@@ -417,4 +469,67 @@ body {
   padding-top: 32px;
   padding-bottom: 32px;
   padding-left: 16px;
+}
+
+.footer-logo {
+  margin-bottom: 16px;
+}
+
+.footer-logo > .accent {
+  color: #f4f4fd;
+}
+
+.footer-container {
+  display: flex;
+}
+
+.footer-left-part {
+  margin-right: 120px;
+  width: 264px;
+}
+
+.footer {
+  background-color: #2e2f42;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.footer-title {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.webstudio-soc-list {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.webstudio-soc-item {
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+.webstudio-soc-link {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.webstudio-soc-icon {
+  fill: #f4f4fd;
+}
+
+.webstudio-soc-link:hover,
+.webstudio-soc-link:focus {
+  background-color: #31d0aa;
 }
