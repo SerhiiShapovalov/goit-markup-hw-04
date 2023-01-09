@@ -89,8 +89,6 @@ body {
 
 .link {
   text-decoration: none;
-  padding-top: 24px;
-  padding-bottom: 24px;
 }
 
 .logo {
@@ -339,17 +337,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  fill: #8e8f99;
+  color: #8e8f99;
 }
 
 .link-icon {
   padding: 16px 32px;
+  fill: currentColor;
 }
 
 .customers-link:hover,
 .customers-link:focus {
   border-color: #404bbf;
-  fill: #404bbf;
+  color: #404bbf;
 }
 
 .portfolio-item-title {
@@ -454,8 +453,11 @@ body {
 
 /* CARD */
 .card {
-  overflow: hidden;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+  overflow: hidden;
+}
+
+.card-link {
 }
 
 .card:hover,
@@ -472,6 +474,13 @@ body {
   border-width: 0px 1px 1px;
   border-style: solid;
   border-color: #e7e9fc;
+}
+
+.card:hover .card-content,
+.card:focus .card-content {
+  border-width: 0px 0.5px 0.5px;
+  border-style: solid;
+  border-color: #f4f4fd;
 }
 
 .footer-logo {
